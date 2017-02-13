@@ -23,7 +23,7 @@ defmodule Opencivics.Mixfile do
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support", "test/factories"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
   # Specifies your project dependencies.
@@ -38,6 +38,8 @@ defmodule Opencivics.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:phoenix_slime, "~> 0.8.0"},
+     {:hound, "~> 0.8"},
+     {:ex_machina, "~> 1.0"},
      {:cowboy, "~> 1.0"}]
   end
 

@@ -7,23 +7,23 @@ defmodule Opencivics.ContactControllerTest do
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, contact_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing contacts"
+    assert html_response(conn, 200) =~ "Attendees"
   end
 
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, contact_path(conn, :new)
-    assert html_response(conn, 200) =~ "New contact"
+    assert html_response(conn, 200) =~ "New Attendee"
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
     conn = post conn, contact_path(conn, :create), contact: @valid_attrs
-    assert redirected_to(conn) == contact_path(conn, :index)
+    assert redirected_to(conn) == contact_path(conn, :new)
     assert Repo.get_by(Contact, @valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, contact_path(conn, :create), contact: @invalid_attrs
-    assert html_response(conn, 200) =~ "New contact"
+    assert html_response(conn, 200) =~ "New Attendee"
   end
 
   test "shows chosen resource", %{conn: conn} do
