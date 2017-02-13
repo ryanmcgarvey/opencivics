@@ -16,7 +16,10 @@ exports.config = {
   },
 
   conventions: {
-    assets: /^(web\/static\/assets)/
+    assets: [
+      /^(web\/static\/assets)/,
+      /^(node_modules\/font-awesome)/
+    ]
   },
 
   // Phoenix paths configuration
@@ -24,7 +27,12 @@ exports.config = {
     // Dependencies and current project directories to watch
     watched: [
       "web/static",
-      "test/static"
+      "test/static",
+      'node_modules/font-awesome/fonts/fontawesome-webfont.eot',
+      'node_modules/font-awesome/fonts/fontawesome-webfont.svg',
+      'node_modules/font-awesome/fonts/fontawesome-webfont.ttf',
+      'node_modules/font-awesome/fonts/fontawesome-webfont.woff',
+      'node_modules/font-awesome/fonts/fontawesome-webfont.woff2'
     ],
 
     // Where to compile files to
@@ -36,11 +44,11 @@ exports.config = {
       ignore: [/web\/static\/vendor/]
     },
     copycat: {
-      "fonts": ["node_modules/bootstrap-sass/assets/fonts/bootstrap"] // copy node_modules/bootstrap-sass/assets/fonts/bootstrap/* to priv/static/fonts/
+    "fonts": ["node_modules/font-awesome/fonts"]
     },
     sass: {
       options: {
-        includePaths: ["node_modules/bootstrap-sass/assets/stylesheets"], // tell sass-brunch where to look for files to @import
+        includePaths: ["node_modules/bootstrap/scss", "node_modules/font-awesome/scss"], // tell sass-brunch where to look for files to @import
         precision: 8 // minimum precision required by bootstrap-sass
       }
     }
@@ -57,7 +65,7 @@ exports.config = {
     globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
       $: 'jquery',
       jQuery: 'jquery',
-      bootstrap: 'bootstrap-sass' // require bootstrap-sass' JavaScript globally
+      bootstrap: 'bootstrap' // require bootstrap-sass' JavaScript globally
     }
   }
 }

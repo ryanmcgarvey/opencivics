@@ -2,7 +2,8 @@ $icon-font-path: "/fonts/";
 
 
 @import "bootstrap";
-/* imports node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss */
+@import "font-awesome";
+
 
 /* Custom Stuff */
 @import "overrides";
