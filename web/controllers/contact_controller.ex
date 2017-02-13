@@ -20,7 +20,7 @@ defmodule Opencivics.ContactController do
       {:ok, _contact} ->
         conn
         |> put_flash(:info, "Contact created successfully.")
-        |> redirect(to: contact_path(conn, :index))
+        |> redirect(to: contact_path(conn, :new))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

@@ -16,8 +16,8 @@ defmodule Opencivics.Router do
   scope "/", Opencivics do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
     resources "/contacts", ContactController 
+    get "/", ContactController, :index
   end
 
   # Other scopes may use custom stacks.
