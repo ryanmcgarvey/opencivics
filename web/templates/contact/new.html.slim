@@ -1,5 +1,4 @@
 h2 New Attendee
 
 = render "form.html", changeset: @changeset, action: contact_path(@conn, :create)
-
-= link "Back", to: contact_path(@conn, :index)
+= link "Back", to: contact_path(@conn, :index), provides: 'back_to_contacts'

@@ -44,19 +44,20 @@ exports.config = {
       ignore: [/web\/static\/vendor/]
     },
     copycat: {
-    "fonts": ["node_modules/font-awesome/fonts"]
+      "fonts": ["node_modules/font-awesome/fonts"]
     },
     sass: {
       options: {
-        includePaths: ["node_modules/bootstrap/scss", "node_modules/font-awesome/scss"], // tell sass-brunch where to look for files to @import
-        precision: 8 // minimum precision required by bootstrap-sass
+        includePaths: ["node_modules/bootstrap/scss", "node_modules/font-awesome/scss", "node_modules/tether/src/css"],
+        precision: 8
       }
     }
   },
 
   modules: {
     autoRequire: {
-      "js/app.js": ["web/static/js/app"]
+      "js/app.js": ["web/static/js/app"],
+
     }
   },
 
@@ -65,7 +66,8 @@ exports.config = {
     globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
       $: 'jquery',
       jQuery: 'jquery',
-      bootstrap: 'bootstrap' // require bootstrap-sass' JavaScript globally
-    }
+      Tether: 'tether',
+      bootstrap: 'bootstrap',
+    },
   }
 }
