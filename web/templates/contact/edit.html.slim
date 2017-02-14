@@ -2,4 +2,4 @@ h2 Edit contact
 
 = render "form.html", changeset: @changeset, action: contact_path(@conn, :update, @contact)
 
-= link "Back", to: contact_path(@conn, :index)
+= link "Back", to: contact_path(@conn, :index), provides: 'back_to_contacts'

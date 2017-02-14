@@ -7,7 +7,7 @@ table.table
       th Last name
       th Email
       th
-  tbody
+  tbody provides="contact_list"
     = for contact <- @contacts do
       tr
         td= contact.first_name
@@ -20,4 +20,4 @@ table.table
           | &nbsp;
           = link "Delete", to: contact_path(@conn, :delete, contact), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
 
-= link "New contact", to: contact_path(@conn, :new)
+= link "New contact", to: contact_path(@conn, :new), provides: "new_contact_button"
