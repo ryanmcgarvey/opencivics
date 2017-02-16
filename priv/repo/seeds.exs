@@ -9,3 +9,12 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Opencivics.Repo
+alias Opencivics.User
+
+ryan = User.registration_changeset(%User{email: "mcgarvey.ryan@gmail.com", password: "fucktrump" })
+emily = User.registration_changeset(%User{ email: "etboyd@gmail.com", password: "fucktrump" })
+Repo.insert! ryan
+Repo.insert! emily
+

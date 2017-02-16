@@ -2,6 +2,9 @@ defmodule Opencivics.ContactController do
   use Opencivics.Web, :controller
 
   alias Opencivics.Contact
+  alias Opencivics.SessionController
+
+  plug Guardian.Plug.EnsureAuthenticated, %{ on_failure: { SessionController, :new } } when not action in [:new, :create]
 
   def index(conn, _params) do
     contacts = Repo.all(Contact)
@@ -21,8 +24,8 @@ defmodule Opencivics.ContactController do
         conn
         |> put_flash(:info, "Contact created successfully.")
         |> redirect(to: contact_path(conn, :new))
-      {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+{:error, changeset} ->
+  render(conn, "new.html", changeset: changeset)
     end
   end
 
@@ -46,8 +49,8 @@ defmodule Opencivics.ContactController do
         conn
         |> put_flash(:info, "Contact updated successfully.")
         |> redirect(to: contact_path(conn, :show, contact))
-      {:error, changeset} ->
-        render(conn, "edit.html", contact: contact, changeset: changeset)
+{:error, changeset} ->
+  render(conn, "edit.html", contact: contact, changeset: changeset)
     end
   end
 

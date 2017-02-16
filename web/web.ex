@@ -52,6 +52,7 @@ defmodule Opencivics.Web do
       import Opencivics.Router.Helpers
       import Opencivics.ErrorHelpers
       import Opencivics.Gettext
+      import Opencivics.ViewHelper
     end
   end
 
