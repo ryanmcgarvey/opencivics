@@ -48,7 +48,7 @@ exports.config = {
     },
     sass: {
       options: {
-        includePaths: ["node_modules/bootstrap/scss", "node_modules/font-awesome/scss", "node_modules/tether/src/css"],
+        includePaths: ["node_modules/font-awesome/scss", "node_modules/tether/src/css"],
         precision: 8
       }
     }
@@ -66,8 +66,7 @@ exports.config = {
     globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
       $: 'jquery',
       jQuery: 'jquery',
-      Tether: 'tether',
-      bootstrap: 'bootstrap',
+      Tether: 'tether'
     },
   }
 }

@@ -24,6 +24,7 @@ defmodule Opencivics.Router do
   scope "/", Opencivics do
     pipe_through [:browser]
 
+    delete "/sesisons", SessionController, :delete
     resources "/sessions", SessionController 
   end
 

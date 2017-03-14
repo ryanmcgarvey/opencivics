@@ -1,9 +1,11 @@
 $icon-font-path: "/fonts/";
 
 
-@import "bootstrap";
+// @import "bootstrap";
+@import "semantic/src/semantic"
 @import "font-awesome";
 @import "tether";
+
 
 
 /* Custom Stuff */

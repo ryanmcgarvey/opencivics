@@ -10,6 +10,12 @@ html lang="en"
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
 
   body
+    nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+      .pull-right
+        = if current_user(@conn) do
+          = link "Logout", to: session_path(@conn, :delete), method: :delete
+        - else
+          = link "Connect", to: session_path(@conn, :new) 
     .container
       p.alert.alert-info role="alert"
         = get_flash(@conn, :info)
